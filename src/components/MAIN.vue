@@ -1,20 +1,8 @@
 <template>
   <main>
     <div class="card-box">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Card v-for="(card, index) in cards" :key="index" :title="card.title"/>
+      
     </div>
   </main>
 </template>
@@ -25,6 +13,9 @@ export default {
   name: 'MAIN',
   components: {
     Card
+  },
+  props:{
+    cards: Array,
   }
 }
 </script>

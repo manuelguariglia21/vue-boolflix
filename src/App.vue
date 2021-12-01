@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <HEADER />
-    <MAIN />
+    <HEADER  @newSearch="searchTitle"/>
+    <MAIN 
+    :cards = "cards"/>
     <div>{{cards.length}}</div>
   </div>
 </template>
@@ -19,17 +20,18 @@ export default {
   data(){
     return{
       cards: [],
-      apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=cf3a8ad796de1dd7af76b38dc8ed5676&language=it-IT&query=scarface',
       loaded: false,
 
     }
   },
   methods:{
-    getApi(){
-      axios.get(this.apiUrl)
+    searchTitle(title){
+      axios.get( `https://api.themoviedb.org/3/search/movie?api_key=cf3a8ad796de1dd7af76b38dc8ed5676&language=it-IT&query=${title}`)
         .then( r => {
           this.cards = r.data.results;
           this.loaded = true;
+          console.log('hai ricevuto la parola da header', title);
+          console.log('ora la lunghezza dell\'array è', this.cards.length);
         })
         .catch( e => {
           console.log(e);
@@ -37,7 +39,7 @@ export default {
     },
   },
   mounted(){
-    this.getApi();
+    this.searchTitle();
   },
 }
 </script>

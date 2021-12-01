@@ -16,7 +16,9 @@ export default {
   },
   methods:{
     searching(){
-      console.log('Parola ricercata salvata in header ==> ', this.searchedWord);
+
+      console.log('Parola ricercata inviata a App ==> ', this.searchedWord);
+      this.$emit('newSearch', this.searchedWord);
     },
   }
 }
