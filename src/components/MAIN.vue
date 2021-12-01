@@ -1,7 +1,14 @@
 <template>
   <main>
     <div class="card-box">
-      <Card v-for="(card, index) in cards" :key="index" :title="card.title"/>
+      <Card 
+      v-for="(card, index) in cards" 
+      :key="index" 
+      :title="card.title"
+      :originalTitle="card.original_title"
+      :language="card.original_language"
+      :vote="card.vote_average"
+      />
       
     </div>
   </main>

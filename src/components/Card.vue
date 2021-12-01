@@ -1,6 +1,9 @@
 <template>
   <div class="card">
-    <p>{{title}}</p>
+    <h2>{{title}}</h2>
+    <p>Titolo originale: {{originalTitle}}</p>
+    <p>Lingua: {{language}}</p>
+    <p>Voto: {{vote}}</p>
   </div>
 </template>
 
@@ -8,6 +11,10 @@
 export default {
   props:{
     title: String,
+    originalTitle: String,
+    language: String,
+    vote: String
+    
   }
 }
 </script>
