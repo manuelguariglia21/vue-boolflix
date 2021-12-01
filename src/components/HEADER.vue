@@ -2,14 +2,23 @@
   <header>
     <img src="../assets/img/logo.png" alt="">
     <div class="serach-bar">
-      <input type="text" placeholder="Cerca un titolo...">
+      <input v-model="searchedWord" @keyup.enter="searching" type="text" placeholder="Cerca un titolo...">
     </div>
   </header>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return{
+      searchedWord: ' ',
+    }
+  },
+  methods:{
+    searching(){
+      console.log('Parola ricercata salvata in header ==> ', this.searchedWord);
+    },
+  }
 }
 </script>
 
