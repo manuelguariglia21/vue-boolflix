@@ -1,14 +1,31 @@
 <template>
   <main>
     <div class="card-box">
-      
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
     </div>
   </main>
 </template>
 
 <script>
+import Card from './Card.vue';
 export default {
-
+  name: 'MAIN',
+  components: {
+    Card
+  }
 }
 </script>
 
@@ -29,9 +46,11 @@ main{
     margin: 0 auto;
     background-color: black;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     color: white;
+    padding: 15px;
   }
 }
 
