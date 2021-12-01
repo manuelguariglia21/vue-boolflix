@@ -24,6 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 @import url('../assets/style/generals.scss');
+@import url('../assets/style/vars.scss');
 header{
   width: 100%;
   height: 90px;
@@ -36,7 +37,7 @@ header{
     width: 200px;
   }
   input[type=text] {
-  border: 3px solid red;
+  border: 3px solid #D91921;
   padding: 5px;
   height: 50px;
   width: 350px;
