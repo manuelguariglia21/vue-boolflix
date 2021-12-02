@@ -3,7 +3,6 @@
     <HEADER  @newSearch="searchTitle"/>
     <MAIN 
     :cards = "cards"/>
-    <div>{{cards.length}}</div>
   </div>
 </template>
 
