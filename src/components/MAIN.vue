@@ -56,7 +56,7 @@ export default {
 main{
   width: 100%;
   min-height: calc(100vh - 90px);
-  background-color: #D91921;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,13 +66,15 @@ main{
     overflow: auto;
     width: 80%;
     margin: 5px auto;
-    background-color: black;
+    background-color: #141414;
+    box-shadow: 2px 5px 4px 5px black;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     color: white;
     padding: 15px;
+    margin-bottom: 15px;
   }
 }
 
