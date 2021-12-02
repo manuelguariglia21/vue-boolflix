@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <HEADER  @newSearch="searchTitle"/>
-    <MAIN 
+    <HEADER @newSearch="searchTitle"/>
+    <MAIN v-if="searchedWord !== undefined"
     :cards = "cards"/>
+    <MAIN v-else />
   </div>
 </template>
 
@@ -20,7 +21,7 @@ export default {
     return{
       cards: [],
       loaded: false,
-
+      searchedWord: undefined,
     }
   },
   methods:{
@@ -29,6 +30,7 @@ export default {
         .then( r => {
           this.cards = r.data.results;
           this.loaded = true;
+          this.searchedWord = title;
           console.log('hai ricevuto la parola da header', title);
           console.log('ora la lunghezza dell\'array è', this.cards.length);
         })
