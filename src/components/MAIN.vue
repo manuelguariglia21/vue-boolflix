@@ -64,9 +64,9 @@ main{
   align-items: center;
   justify-content: center;
   .card-box{
-    height: 500px;
+    height: 700px;
     overflow: auto;
-    width: 80%;
+    width: 90%;
     margin: 5px auto;
     background-color: #141414;
     box-shadow: 2px 5px 4px 5px black;

@@ -2,7 +2,7 @@
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <img :src="image_base + image_size + image" :alt="image" style="width:200px;height:300px;">
+      <img :src="image_base + image_size + image" :alt="image" style="width:342px;">
     </div>
     <div class="flip-card-back">
       <div class="movie-title">
@@ -30,7 +30,7 @@ export default {
   data(){
     return{
     image_base: 'https://image.tmdb.org/t/p/w' ,
-    image_size: '200',
+    image_size: '342',
 
     }
   },
@@ -61,8 +61,8 @@ export default {
 
 .flip-card {
   background-color: transparent;
-  width: 200px;
-  height: 300px;
+  width: 342px;
+  height: 450px;
   perspective: 1000px;
   cursor: pointer;
   margin: 10px;
@@ -70,8 +70,8 @@ export default {
 
 .flip-card-inner {
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
@@ -84,8 +84,8 @@ export default {
 
 .flip-card-front, .flip-card-back {
   position: absolute;
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
