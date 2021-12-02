@@ -10,6 +10,7 @@
       :vote="card.vote_average"
       :name="card.name"
       :originalName="card.original_name"
+      :image="card.poster_path"
       />
       
     </div>
@@ -24,6 +25,7 @@
       :vote="card.vote_average"
       :name="card.name"
       :originalName="card.original_name"
+      :image="card.poster_path"
       />
       
     </div>

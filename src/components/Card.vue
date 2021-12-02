@@ -2,7 +2,7 @@
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <img src="https://image.tmdb.org/t/p/w300/leE3IJMKd4DoQcmY9NxFKWYZz4w.jpg" alt="Avatar" style="width:300px;height:300px;">
+      <img :src="image_base + image_size + image" :alt="image" style="width:200px;height:300px;">
     </div>
     <div class="flip-card-back">
       <div class="movie-title">
@@ -27,11 +27,19 @@
 
 <script>
 export default {
+  data(){
+    return{
+    image_base: 'https://image.tmdb.org/t/p/w' ,
+    image_size: '200',
+
+    }
+  },
   props:{
 
     //General Props
     language: String,
     vote: Number,
+    image: String,
 
     //Movies Props
     title: String,
@@ -43,6 +51,8 @@ export default {
     originalName: String,
 
 
+  },
+  methods:{
   }
 }
 </script>
