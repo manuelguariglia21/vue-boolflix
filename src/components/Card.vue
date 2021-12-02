@@ -1,23 +1,9 @@
 <template>
   <div class="card">
-    <div
-    v-if="cat === 'movie' "
-    class="movie-title"
-    >
+    <div class="movie-title">
       <h2>{{title}}</h2>
       <p>Titolo originale: {{originalTitle}}</p>
     </div>
-
-    <div
-    v-else-if="cat === 'tv' "
-    class="tv-title"
-    >
-      <h2>{{name}}</h2>
-      <p>Titolo originale: {{originalName}}</p>
-    </div>
-
-    
-
 
     <p v-if="language === 'it'">
       Lingua originale: 
@@ -44,6 +30,7 @@ export default {
     //Movies Props
     title: String,
     originalTitle: String,
+    
 
     //TV Series Props
     name: String,

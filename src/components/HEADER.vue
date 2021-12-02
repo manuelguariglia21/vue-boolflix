@@ -6,7 +6,8 @@
       <div class="select-div">
         <label>
             <select v-model="cat">
-                <option selected>movie</option>
+                <option selected>all</option>
+                <option>movie</option>
                 <option>tv</option>
             </select>
         </label>
@@ -33,7 +34,8 @@ export default {
     searching(){
 
       console.log('Parola ricercata inviata a App ==> ', this.searchedWord);
-      this.$emit('newSearch', this.searchedWord, this.cat);
+      this.$emit('newSearchMovies', this.searchedWord, this.cat);
+      this.$emit('newSearchTv', this.searchedWord, this.cat);
     },
   }
 }
@@ -57,22 +59,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .select-div:after {
-      content: '<>';
-      color: white;
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      transform: rotate(90deg);
-      right: 11px;
 
-      top: 18px;
-      padding: 0 0 2px;
-      border-bottom: 1px solid #D91921;
-      
-      position: absolute;
-      pointer-events: none;
-    }
 
     .select-div select {
       -webkit-appearance: none;

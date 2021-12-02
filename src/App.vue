@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <HEADER @newSearch="searchTitle"/>
+    <HEADER @newSearchMovies="searchMovies" @newSearchTv="searchTv"/>
     <MAIN 
     v-if="searchedWord !== undefined"
     :cards = "cards"
+    :cardsMovies = "cardsMovies"
+    :cardsTv = "cardsTv"
     :cat = "cat" 
+    :searchedWord = "searchedWord"
     />
     <MAIN v-else />
   </div>
@@ -23,30 +26,44 @@ export default {
   data(){
     return{
       cards: [],
+      cardsMovies: [],
+      cardsTv: [],
       loaded: false,
       searchedWord: undefined,
       cat: ' ',
     }
   },
   methods:{
-    searchTitle(title, cat){
-      axios.get( `https://api.themoviedb.org/3/search/${cat}?api_key=cf3a8ad796de1dd7af76b38dc8ed5676&language=it-IT&query=${title}`)
+    searchMovies(title){
+        //chiamata Movies
+        axios.get( `https://api.themoviedb.org/3/search/movie?api_key=cf3a8ad796de1dd7af76b38dc8ed5676&language=it-IT&query=${title}`)
         .then( r => {
-          this.cards = r.data.results;
+          this.cardsMovies = r.data.results;
           this.loaded = true;
           this.searchedWord = title;
-          console.log('hai ricevuto la parola da header', title);
-          console.log('hai ricevuto la cat da header', cat);
-          console.log('ora la lunghezza dell\'array è', this.cards.length);
-          this.cat = cat;
-        })
+          })
         .catch( e => {
           console.log(e);
         })
+        console.log('chiamata effettuata', this.cardsMovies);
     },
+    searchTv(title){
+      //chiamata TV Series
+
+        axios.get( `https://api.themoviedb.org/3/search/tv?api_key=cf3a8ad796de1dd7af76b38dc8ed5676&language=it-IT&query=${title}`)
+        .then( r => {
+          this.cardsTv = r.data.results;
+          this.loaded = true;
+          this.searchedWord = title;
+          })
+        .catch( e => {
+          console.log(e);
+        })
+    }
   },
   mounted(){
-    this.searchTitle();
+    this.searchTv();
+    this.searchMovies();
   },
 }
 </script>

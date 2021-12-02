@@ -1,9 +1,9 @@
 <template>
   <main>
-    <div class="card-box movies">
+    <div v-if="cardsMovies.length > 0" class="card-box movies">
       <Card 
-      v-for="(card, index) in cards" 
-      :key="index" 
+      v-for="card in cardsMovies" 
+      :key="card.id" 
       :title="card.title"
       :originalTitle="card.original_title"
       :language="card.original_language"
@@ -13,6 +13,25 @@
       :originalName="card.original_name"
       />
       
+    </div>
+
+    <div v-if="cardsTv.length > 0" class="card-box tv">
+      <Card 
+      v-for="card in cardsTv" 
+      :key="card.id" 
+      :title="card.name"
+      :originalTitle="card.original_name"
+      :language="card.original_language"
+      :vote="card.vote_average"
+      :cat="cat"
+      :name="card.name"
+      :originalName="card.original_name"
+      />
+      
+    </div>
+
+    <div v-else class="card-box">
+      <h2>Ci spiace, non ci sono risultati per : "{{searchedWord}}".</h2>
     </div>
   </main>
 </template>
@@ -25,7 +44,9 @@ export default {
     Card
   },
   props:{
-    cards: Array,
+    cardsMovies: Array,
+    cardsTv: Array,
+    searchedWord: String,
     cat: String,
   },
   
