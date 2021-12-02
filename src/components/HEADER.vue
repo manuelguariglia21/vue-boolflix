@@ -1,9 +1,22 @@
 <template>
   <header>
     <img src="../assets/img/logo.png" alt="">
-    <div class="serach-bar">
-      <input v-model="searchedWord" @keyup.enter="searching" type="text" placeholder="Cerca un titolo...">
+
+    <div class="search-box" @keyup.enter="searching">
+      <div class="select-div">
+        <label>
+            <select v-model="cat">
+                <option selected>movie</option>
+                <option>tv</option>
+            </select>
+        </label>
+      </div>
+
+    <div class="search-bar">
+      <input v-model="searchedWord" type="text" placeholder="Cerca un titolo...">
     </div>
+    </div>
+
   </header>
 </template>
 
@@ -12,13 +25,15 @@ export default {
   data() {
     return{
       searchedWord: ' ',
+      cat: ' ',
     }
   },
+
   methods:{
     searching(){
 
       console.log('Parola ricercata inviata a App ==> ', this.searchedWord);
-      this.$emit('newSearch', this.searchedWord);
+      this.$emit('newSearch', this.searchedWord, this.cat);
     },
   }
 }
@@ -38,13 +53,60 @@ header{
   img{
     width: 200px;
   }
-  input[type=text] {
-  border: 3px solid #D91921;
-  padding: 5px;
-  height: 50px;
-  width: 350px;
-  border-radius: 4px;
-  font-size: 25px;
+  .search-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .select-div:after {
+      content: '<>';
+      color: white;
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      right: 11px;
+
+      top: 18px;
+      padding: 0 0 2px;
+      border-bottom: 1px solid #D91921;
+      
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .select-div select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      height: 50px;
+      float: right;
+      margin: 5px 0px;
+      padding: 0px 24px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: black;
+      background-color: white;
+      background-image: none;
+      border: 1px solid #D91921;
+      -ms-word-break: normal;
+      word-break: normal;
+    }
+
+
+    .search-bar{
+      input{
+        border: 3px solid #D91921;
+        padding: 5px;
+        height: 50px;
+        width: 350px;
+        border-radius: 4px;
+        font-size: 25px;
+      }
+    }
   }
 }
 </style>

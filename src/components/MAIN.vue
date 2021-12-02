@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="card-box">
+    <div class="card-box movies">
       <Card 
       v-for="(card, index) in cards" 
       :key="index" 
@@ -8,6 +8,9 @@
       :originalTitle="card.original_title"
       :language="card.original_language"
       :vote="card.vote_average"
+      :cat="cat"
+      :name="card.name"
+      :originalName="card.original_name"
       />
       
     </div>
@@ -23,6 +26,7 @@ export default {
   },
   props:{
     cards: Array,
+    cat: String,
   },
   
 }
@@ -33,16 +37,17 @@ export default {
 @import url('../assets/style/vars.scss');
 main{
   width: 100%;
-  height: calc(100vh - 90px);
+  min-height: calc(100vh - 90px);
   background-color: #D91921;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   .card-box{
     height: 500px;
     overflow: auto;
     width: 80%;
-    margin: 0 auto;
+    margin: 5px auto;
     background-color: black;
     display: flex;
     justify-content: center;

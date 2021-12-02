@@ -1,7 +1,24 @@
 <template>
   <div class="card">
-    <h2>{{title}}</h2>
-    <p>Titolo originale: {{originalTitle}}</p>
+    <div
+    v-if="cat === 'movie' "
+    class="movie-title"
+    >
+      <h2>{{title}}</h2>
+      <p>Titolo originale: {{originalTitle}}</p>
+    </div>
+
+    <div
+    v-else-if="cat === 'tv' "
+    class="tv-title"
+    >
+      <h2>{{name}}</h2>
+      <p>Titolo originale: {{originalName}}</p>
+    </div>
+
+    
+
+
     <p v-if="language === 'it'">
       Lingua originale: 
       <img src="../assets/img/it.png" :alt="language">
@@ -18,11 +35,21 @@
 <script>
 export default {
   props:{
+    cat: String,
+
+    //General Props
+    language: String,
+    vote: Number,
+
+    //Movies Props
     title: String,
     originalTitle: String,
-    language: String,
-    vote: Number
-    
+
+    //TV Series Props
+    name: String,
+    originalName: String,
+
+
   }
 }
 </script>
