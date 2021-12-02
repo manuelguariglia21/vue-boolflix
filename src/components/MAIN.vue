@@ -23,7 +23,8 @@ export default {
   },
   props:{
     cards: Array,
-  }
+  },
+  
 }
 </script>
 

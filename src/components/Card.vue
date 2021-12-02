@@ -2,7 +2,15 @@
   <div class="card">
     <h2>{{title}}</h2>
     <p>Titolo originale: {{originalTitle}}</p>
-    <p>Lingua: {{language}}</p>
+    <p v-if="language === 'it'">
+      Lingua originale: 
+      <img src="../assets/img/it.png" :alt="language">
+    </p>
+    <p v-else-if="language === 'en'">
+      Lingua originale: 
+      <img src="../assets/img/en.png" :alt="language">
+    </p>
+    <p v-else>Lingua originale: {{language}}</p>
     <p>Voto: {{vote}}</p>
   </div>
 </template>
@@ -13,7 +21,7 @@ export default {
     title: String,
     originalTitle: String,
     language: String,
-    vote: String
+    vote: Number
     
   }
 }
@@ -30,6 +38,11 @@ export default {
   color: black;
   text-align: center;
   padding: 10px;
+  p{
+    img{
+      width: 20px;
+    }
+  }
 }
 
 </style>
