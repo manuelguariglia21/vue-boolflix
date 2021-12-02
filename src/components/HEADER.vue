@@ -3,16 +3,6 @@
     <img src="../assets/img/logo.png" alt="">
 
     <div class="search-box" @keyup.enter="searching">
-      <div class="select-div">
-        <label>
-            <select v-model="cat">
-                <option selected>all</option>
-                <option>movie</option>
-                <option>tv</option>
-            </select>
-        </label>
-      </div>
-
     <div class="search-bar">
       <input v-model="searchedWord" type="text" placeholder="Cerca un titolo...">
     </div>
@@ -26,7 +16,6 @@ export default {
   data() {
     return{
       searchedWord: ' ',
-      cat: ' ',
     }
   },
 
@@ -34,8 +23,8 @@ export default {
     searching(){
 
       console.log('Parola ricercata inviata a App ==> ', this.searchedWord);
-      this.$emit('newSearchMovies', this.searchedWord, this.cat);
-      this.$emit('newSearchTv', this.searchedWord, this.cat);
+      this.$emit('newSearchMovies', this.searchedWord);
+      this.$emit('newSearchTv', this.searchedWord);
     },
   }
 }

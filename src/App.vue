@@ -3,10 +3,8 @@
     <HEADER @newSearchMovies="searchMovies" @newSearchTv="searchTv"/>
     <MAIN 
     v-if="searchedWord !== undefined"
-    :cards = "cards"
     :cardsMovies = "cardsMovies"
-    :cardsTv = "cardsTv"
-    :cat = "cat" 
+    :cardsTv = "cardsTv" 
     :searchedWord = "searchedWord"
     />
     <MAIN v-else />
@@ -25,12 +23,10 @@ export default {
   },
   data(){
     return{
-      cards: [],
       cardsMovies: [],
       cardsTv: [],
       loaded: false,
       searchedWord: undefined,
-      cat: ' ',
     }
   },
   methods:{

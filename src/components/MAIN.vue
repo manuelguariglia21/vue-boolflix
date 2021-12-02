@@ -8,7 +8,6 @@
       :originalTitle="card.original_title"
       :language="card.original_language"
       :vote="card.vote_average"
-      :cat="cat"
       :name="card.name"
       :originalName="card.original_name"
       />
@@ -23,7 +22,6 @@
       :originalTitle="card.original_name"
       :language="card.original_language"
       :vote="card.vote_average"
-      :cat="cat"
       :name="card.name"
       :originalName="card.original_name"
       />
@@ -47,7 +45,6 @@ export default {
     cardsMovies: Array,
     cardsTv: Array,
     searchedWord: String,
-    cat: String,
   },
   
 }

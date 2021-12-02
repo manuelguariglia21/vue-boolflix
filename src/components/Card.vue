@@ -21,7 +21,6 @@
 <script>
 export default {
   props:{
-    cat: String,
 
     //General Props
     language: String,
