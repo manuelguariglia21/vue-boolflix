@@ -68,7 +68,7 @@ export default {
   height: 450px;
   perspective: 1000px;
   cursor: pointer;
-  margin: 10px;
+  margin: 20px;
 }
 
 .flip-card-inner {

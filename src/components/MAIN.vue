@@ -30,7 +30,7 @@
       
     </div>
 
-    <div v-else class="card-box">
+    <div v-if="cardsTv.length === 0 && cardsMovies.length === 0" class="card-box">
       <h2>Ci spiace, non ci sono risultati per : "{{searchedWord}}".</h2>
     </div>
   </main>
