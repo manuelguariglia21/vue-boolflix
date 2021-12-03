@@ -3,10 +3,20 @@
     <img src="../assets/img/logo.png" alt="">
 
     <div class="search-box" @keyup.enter="searching">
-    <div class="search-bar">
-      <input v-model="searchedWord" type="text" placeholder="Cerca un titolo...">
-      <button class="btn btn-primary" type="submit" @click="searching">Cerca</button>
-    </div>
+
+      <div class="search-bar">
+
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="cat">
+          <option value="all">All</option>
+          <option value="movie">Movies</option>
+          <option value="tv">TV Series</option>
+        </select>
+
+        <input v-model="searchedWord" type="text" placeholder="Cerca un titolo...">
+
+        <button class="btn btn-primary" type="submit" @click="searching">Cerca</button>
+
+      </div>
     </div>
 
   </header>
@@ -17,6 +27,7 @@ export default {
   data() {
     return{
       searchedWord: ' ',
+      cat: ' ',
     }
   },
 
@@ -26,6 +37,8 @@ export default {
       console.log('Parola ricercata inviata a App ==> ', this.searchedWord);
       this.$emit('newSearchMovies', this.searchedWord);
       this.$emit('newSearchTv', this.searchedWord);
+      this.$emit('selectCat', this.cat);
+      console.log(this.cat);
     },
   }
 }
@@ -77,22 +90,24 @@ header{
 
     .search-bar{
       display: flex;
-      align-items: center;
-      input, button{
+      align-items: top;
+      input, button, select{
         padding: 5px;
-        border-radius: 4px;
         font-size: 25px;
+        height: 50px;
+        border-radius: 0;
       }
-      input{
-        border-left: 3px solid #D91921;
+      input, select{
         border-top: 3px solid #D91921;
         border-bottom: 3px solid #D91921;
-        height: 50px;
         width: 350px;
+      }
+      select{ 
+        border-left: 3px solid #D91921;
       }
       button{
         border-left: transparent;
-        border: 2px solid white;
+        border: 2px solid #D91921;
         background-color: #D91921;
       }
     }

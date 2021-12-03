@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div v-if="cardsMovies.length > 0" class="card-box movies">
+    <div v-if="cardsMovies.length > 0 && (cat === 'movie' || cat === 'all')" class="card-box movies">
       <Card 
       v-for="card in cardsMovies" 
       :key="card.id" 
@@ -16,7 +16,7 @@
       
     </div>
 
-    <div v-if="cardsTv.length > 0" class="card-box tv">
+    <div v-if="cardsTv.length > 0 && (cat === 'tv' || cat === 'all')" class="card-box tv">
       <Card 
       v-for="card in cardsTv" 
       :key="card.id" 
@@ -32,7 +32,7 @@
       
     </div>
 
-    <div v-if="cardsTv.length === 0 && cardsMovies.length === 0" class="card-box">
+    <div v-if="cardsTv.length === 0  && cardsMovies.length === 0" class="card-box">
       <h2>Ci spiace, non ci sono risultati per : "{{searchedWord}}".</h2>
     </div>
   </main>
@@ -49,6 +49,7 @@ export default {
     cardsMovies: Array,
     cardsTv: Array,
     searchedWord: String,
+    cat: String
   },
   
 }

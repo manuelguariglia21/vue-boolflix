@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <HEADER @newSearchMovies="searchMovies" @newSearchTv="searchTv"/>
+    <HEADER @newSearchMovies="searchMovies" @newSearchTv="searchTv" @selectCat="selectCat"/>
     <MAIN 
     v-if="searchedWord !== undefined"
     :cardsMovies = "cardsMovies"
     :cardsTv = "cardsTv" 
     :searchedWord = "searchedWord"
+    :cat = "cat"
     />
     <MAIN v-else />
   </div>
@@ -27,6 +28,7 @@ export default {
       cardsTv: [],
       loaded: false,
       searchedWord: undefined,
+      cat: ' ',
     }
   },
   methods:{
@@ -55,6 +57,10 @@ export default {
         .catch( e => {
           console.log(e);
         })
+    },
+
+    selectCat(cat){
+      this.cat = cat;
     }
   },
   mounted(){
