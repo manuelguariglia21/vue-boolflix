@@ -79,6 +79,7 @@ export default {
   transition: transform 0.6s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 30px;
 }
 
 .flip-card:hover .flip-card-inner {
@@ -97,6 +98,7 @@ export default {
   background-color: #bbb;
   color: black;
   overflow: hidden;
+  border-radius: 30px;
 }
 
 .flip-card-back {
@@ -105,6 +107,7 @@ export default {
   color: white;
   transform: rotateY(180deg);
   padding: 15px;
+  border-radius: 30px;
   p{
   img{
     width: 20px;
