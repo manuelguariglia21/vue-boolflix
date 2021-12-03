@@ -3,3 +3,20 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
+body{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.zoom{
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  &:hover{
+    transform: scale(1.5);
+  }
+}
+

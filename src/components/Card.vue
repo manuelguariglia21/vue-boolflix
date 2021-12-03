@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import url('../assets/style/generals.scss');
 .flip-card {
   background-color: transparent;
   width: 342px;
