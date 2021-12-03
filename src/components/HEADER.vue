@@ -5,6 +5,7 @@
     <div class="search-box" @keyup.enter="searching">
     <div class="search-bar">
       <input v-model="searchedWord" type="text" placeholder="Cerca un titolo...">
+      <button class="btn btn-primary" type="submit" @click="searching">Cerca</button>
     </div>
     </div>
 
@@ -31,6 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~bootstrap/scss/bootstrap.scss';
 @import url('../assets/style/generals.scss');
 @import url('../assets/style/vars.scss');
 header{
@@ -74,13 +76,24 @@ header{
 
 
     .search-bar{
-      input{
-        border: 3px solid #D91921;
+      display: flex;
+      align-items: center;
+      input, button{
         padding: 5px;
-        height: 50px;
-        width: 350px;
         border-radius: 4px;
         font-size: 25px;
+      }
+      input{
+        border-left: 3px solid #D91921;
+        border-top: 3px solid #D91921;
+        border-bottom: 3px solid #D91921;
+        height: 50px;
+        width: 350px;
+      }
+      button{
+        border-left: transparent;
+        border: 2px solid white;
+        background-color: #D91921;
       }
     }
   }
