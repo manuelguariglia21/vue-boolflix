@@ -22,6 +22,9 @@
       <div class="stars" v-for="index in 5" :key="index">
         <i class="fa-star" :class="(vote / 2 > index) ? 'fas' : 'far'"></i>
       </div>
+      <div class="overview">
+        <p>{{overview}}</p>
+      </div>
     </div>
   </div>
 </div>   
@@ -42,6 +45,7 @@ export default {
     language: String,
     vote: Number,
     image: String,
+    overview: String,
 
     //Movies Props
     title: String,
@@ -117,6 +121,11 @@ export default {
 .stars{
     display: inline;
     color: yellow;
+}
+
+.overview{
+  max-height: 300px;
+  overflow: auto;
 }
 
 

@@ -11,6 +11,7 @@
       :name="card.name"
       :originalName="card.original_name"
       :image="card.poster_path"
+      :overview="card.overview"
       />
       
     </div>
@@ -26,6 +27,7 @@
       :name="card.name"
       :originalName="card.original_name"
       :image="card.poster_path"
+      :overview="card.overview"
       />
       
     </div>
