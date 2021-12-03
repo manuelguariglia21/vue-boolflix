@@ -19,7 +19,9 @@
       <img src="../assets/img/en.png" :alt="language">
       </p>
       <p v-else>Lingua originale: {{language}}</p>
-      <p>Voto: {{vote}}</p>
+      <div class="stars" v-for="index in 5" :key="index">
+        <i class="fa-star" :class="(vote / 2 > index) ? 'fas' : 'far'"></i>
+      </div>
     </div>
   </div>
 </div>   
@@ -58,6 +60,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
 @import url('../assets/style/generals.scss');
 .flip-card {
   background-color: transparent;
@@ -105,8 +108,12 @@ export default {
   p{
   img{
     width: 20px;
+    } 
   }
 }
+.stars{
+    display: inline;
+    color: yellow;
 }
 
 
